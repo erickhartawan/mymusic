@@ -7,7 +7,7 @@ export default () =>{
             <img
             src={Spinner}
             alt="Loading.."
-            sytle={{ width:'200px', margin:' 40px auto', display:'block' }}
+            style={{ width:'200px', margin:' 40px auto', display:'block' }}
             />
 
         </div>
