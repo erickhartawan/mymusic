@@ -2,6 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore, applyMiddleware } from 'redux';
+import {reducer} from "./App.js"
+import thunk from 'redux-thunk';
+
+const initialState = {
+  track_list: [{title: 'hahahah'}],
+};
+
+export const store = createStore(
+  reducer,
+  initialState,
+  applyMiddleware(thunk)
+  );
+
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
