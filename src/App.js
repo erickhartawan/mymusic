@@ -16,7 +16,7 @@ const reducer = (state,action) =>{
   }
 
 }
-const store = createStore(reducer,state);
+const store = createStore(reducer);
 
 class App extends Component {
     state = {
