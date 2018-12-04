@@ -10,13 +10,11 @@ import { Provider, connect } from 'react-redux';
 // reducers taken for this is used from app-7
 const reducer = (state,action) =>{
   if (action.type == "INJECT_STATE"){
-    return{
-      state: action.state
-    };
+    return {state: action.state}
   }
 
 }
-const store = createStore(reducer);
+export const store = createStore(reducer);
 
 class App extends Component {
     state = {
