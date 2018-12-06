@@ -11,15 +11,16 @@ class Tracks extends Component {
     store.subscribe(() => this.forceUpdate());
   }
   render() {
-    // const state = store.getState();
-    // const { track_list, heading } = state;
-    // if (track_list === undefined || track_list.length === 0) {
-      // return (
-      //   <Spinner />
-      // );
-    // } else {
+    const state = store.getState();
+    console.log(state);
+    const { track_list, heading } = state;
+    // if (state === undefined) {
       return (
-        <TrackList />
+        <Spinner />
+      );
+    // } else {
+    //   return (
+    //     <TrackList />
         // <React.Fragment>
         //   {/* <Search /> */}
         //   <h1 className='text-center mb-4'>
@@ -37,7 +38,8 @@ class Tracks extends Component {
         //     }
         //   </div>
         // </React.Fragment>
-      );
+      // );
+    // }
     // }
   }
 }

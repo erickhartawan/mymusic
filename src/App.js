@@ -10,7 +10,7 @@ import { store } from './index'
 
 export function reducer(state,action){
   if (action.type === "INJECT_STATE"){
-    return {...state,track_list: action.payload}
+    return action.payload
   } else {
     return state;
   }
@@ -23,25 +23,26 @@ class App extends Component {
     };
   
   componentWillMount(){
-  axios.get(`https://infinite-lowlands-58555.herokuapp.com/http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=au&f_has_lyrics=1&apikey=${process.env.REACT_APP_MM_KEY}`)
+  axios.get('data.json')
         .then( res => {
             // console.log(res.data);
             // this.setState({track_list: res.data.message.body.track_list });
-            const result = res.data.message.body.track_list;
-            this.setState({track_list : result})
-            console.log(this.state).
+            // const result = store.getState();
+            // console.log(result);
+            // this.setState({track_list: result})
+            console.log(this.state)
             store.dispatch({
               type:"INJECT_STATE",
-              payload: this.state.track_list,
+              payload: res.data.message.body
               });
               const result2 = store.getState();
-            console.log(this.state.track_list);
+            console.log(result2);
             })
         .catch( err =>  console.log(err))
   }
   render() {
     return (
-      <Provider store ={store}>
+      
       <Router>
         <React.Fragment>
           <Navbar />
@@ -53,8 +54,6 @@ class App extends Component {
             </div> 
         </React.Fragment>
       </Router>
-      </Provider>
-      
     );
   }
 }

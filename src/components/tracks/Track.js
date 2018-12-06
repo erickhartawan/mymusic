@@ -26,7 +26,7 @@ const Track = (props) => {
   }
 }
 
-const mapStateToTabsProps = (state) => {
+const mapStateToTrackProps = (state) => {
   const track = state.track.map(t => (
     {
       artist_name: t.artist_name,
@@ -53,6 +53,6 @@ const mapStateToTabsProps = (state) => {
 // );
 
 export const TrackList = connect(
-  mapStateToTabsProps,
+  mapStateToTrackProps,
   // mapDispatchToTabsProps
 )(Track);
