@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import Spinner from '../layout/Spinner';
 import Track from '../tracks/Track';
 import Search from './Search';
-import { store } from '../../index'
+import { store } from '../../index';
+import { connect } from 'react-redux';
 
 class Tracks extends Component {
   componentDidMount() {
