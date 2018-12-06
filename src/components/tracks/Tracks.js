@@ -7,7 +7,7 @@ import Search from './Search';
 class Tracks extends Component {
   render() {
     return (
-       <Consumer>
+        <Consumer>
         { 
         value => {
           const { track_list, heading } = value ;
@@ -37,7 +37,7 @@ class Tracks extends Component {
           }
         }
       }
-       </Consumer>
+        </Consumer>
     );
   }
 }  
