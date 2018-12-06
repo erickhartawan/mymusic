@@ -29,12 +29,13 @@ class App extends Component {
             // this.setState({track_list: res.data.message.body.track_list });
             const result = res.data.message.body.track_list;
             this.setState({track_list : result})
-            // console.log(this.state)
+            console.log(this.state).
             store.dispatch({
               type:"INJECT_STATE",
               payload: this.state.track_list,
               });
-            console.log(store.getState());
+              const result2 = store.getState();
+            console.log(this.state.track_list);
             })
         .catch( err =>  console.log(err))
   }

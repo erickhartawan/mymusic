@@ -41,7 +41,18 @@ const mapStateToTabsProps = (state) => {
   };
 };
 
+// const mapDispatchToTabsProps = (dispatch) => (
+//   {
+//     onClick: (id) => (
+//       dispatch({
+//         type: 'OPEN_THREAD',
+//         id: id,
+//       })
+//     ),
+//   }
+// );
+
 export const TrackList = connect(
   mapStateToTabsProps,
-  mapDispatchToTabsProps
+  // mapDispatchToTabsProps
 )(Track);
