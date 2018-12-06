@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import {reducer} from "./App.js"
 import thunk from 'redux-thunk';
 import { Provider, connect } from 'react-redux';
+import {fetchAPIData} from './actions/index';
 
 const initialState = {
   track_list: [{title: 'hahahah'}],
@@ -17,6 +18,7 @@ export const store = createStore(
   applyMiddleware(thunk)
   );
 
+  store.dispatch(fetchAPIData());
 
   const WrappedApp = () =>(
     <Provider store={store}>

@@ -21,25 +21,6 @@ class App extends Component {
     state = {
       track_list:[],
     };
-  
-  componentWillMount(){
-  axios.get('data.json')
-        .then( res => {
-            // console.log(res.data);
-            // this.setState({track_list: res.data.message.body.track_list });
-            // const result = store.getState();
-            // console.log(result);
-            // this.setState({track_list: result})
-            console.log(this.state)
-            store.dispatch({
-              type:"INJECT_STATE",
-              payload: res.data.message.body
-              });
-              const result2 = store.getState();
-            console.log(result2);
-            })
-        .catch( err =>  console.log(err))
-  }
   render() {
     return (
       
