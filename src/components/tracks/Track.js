@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 const Track = (props) => {
-  const { track } = props;
-  return (
+  // const { track } = props;
+    {
+      props.track.map((track,index) => (
+
     <div className='col-md-6'>
       <div className="card mb-4 shadow-sm">
         <div className="card-body">
@@ -20,6 +22,26 @@ const Track = (props) => {
         </div>
       </div>
     </div>
-  )
+      ))
+  }
 }
-export default Track;
+
+const mapStateToTabsProps = (state) => {
+  const track = state.track.map(t => (
+    {
+      artist_name: t.artist_name,
+      track_name: t.track_name,
+      album_name: t.album_name,
+      track_id: t.track_id,
+    }
+  ));
+
+  return {
+    track,
+  };
+};
+
+export const TrackList = connect(
+  mapStateToTabsProps,
+  mapDispatchToTabsProps
+)(Track);
