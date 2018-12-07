@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { store } from '../../index';
 
-const Track = (props) => {
-  // const { track } = props;
-    {
-      props.track.map((track,index) => (
+const Track = (props) => (
+  <>
+  {
+    props.tracks.map((track,index) => (
 
     <div className='col-md-6'>
       <div className="card mb-4 shadow-sm">
@@ -22,12 +23,15 @@ const Track = (props) => {
         </div>
       </div>
     </div>
-      ))
+    )
+    )
   }
-}
+  </>
+)
+
 
 const mapStateToTrackProps = (state) => {
-  const track = state.track.map(t => (
+  const tracks = state.track_list.map(t => (
     {
       artist_name: t.artist_name,
       track_name: t.track_name,
@@ -37,7 +41,7 @@ const mapStateToTrackProps = (state) => {
   ));
 
   return {
-    track,
+    tracks,
   };
 };
 

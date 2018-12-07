@@ -12,36 +12,40 @@ class Tracks extends Component {
   }
   render() {
     const state = store.getState();
-    console.log(state);
-    const { track_list, heading } = state;
-    // if (state === undefined) {
+    while (state.track_list.title === "hahaha"){
+      console.log(state);
       return (
         <Spinner />
       );
-    // } else {
-    //   return (
-    //     <TrackList />
-        // <React.Fragment>
-        //   {/* <Search /> */}
-        //   <h1 className='text-center mb-4'>
-        //     {heading}
-        //   </h1>
-        //   <div className='row'>
-        //   <TrackList />
-        //     {
-        //       track_list.map(items => (
-        //         <Track 
-        //         // key={items.track.track_id}
-        //         track={items.track} />
-        //       )
-        //       )
-        //     }
-        //   </div>
-        // </React.Fragment>
-      // );
-    // }
+    }
+  //   if (state === undefined) {
+  //     return (
+  //       <Spinner />
+  //     );
+  //   } else {
+      const { track_list, heading } = state;
+      return (
+        <React.Fragment>
+          {/* <Search /> */}
+          <h1 className='text-center mb-4'>
+            {heading}
+          </h1>
+          <div className='row'>
+          <TrackList
+          track={this.state}
+            />
+            {/* {
+              track_list.map(items => (
+                <Track 
+                // key={items.track.track_id}
+                track={items.track} />
+              )
+              )
+            } */}
+          </div>
+        </React.Fragment>
+      );
     // }
   }
 }
-
 export default Tracks
