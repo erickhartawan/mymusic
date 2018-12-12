@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
 import Lyrics from './components/tracks/Lyrics';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+<<<<<<< HEAD
 import axios from 'axios';
 import { Provider, connect } from 'react-redux';
 import { store } from './index'
@@ -15,6 +16,10 @@ export function reducer(state,action){
     return state;
   }
 }
+=======
+// reducers taken for this is used from app-7
+
+>>>>>>> redux-rewrite
 
 
 class App extends Component {
@@ -40,7 +45,10 @@ class App extends Component {
   }
   render() {
     return (
+<<<<<<< HEAD
       <Provider store ={store}>
+=======
+>>>>>>> redux-rewrite
       <Router>
         <React.Fragment>
           <Navbar />
@@ -52,8 +60,6 @@ class App extends Component {
             </div> 
         </React.Fragment>
       </Router>
-      </Provider>
-      
     );
   }
 }
