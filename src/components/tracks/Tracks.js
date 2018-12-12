@@ -7,23 +7,28 @@ import { store } from '../../index';
 import { connect } from 'react-redux';
 
 class Tracks extends Component {
-  componentDidMount() {
-    store.subscribe(() => this.forceUpdate());
-  }
+  state={};
+
+  // componentDidMount() {
+  //   const statefromstore = store.getState();
+  //   this.setState({statefromstore});
+  // };
+
+  // componentDidUpdate(prevState) {
+  //   if(this.state !== prevState.state){
+  //   this.setState(this.state);
+  //   }
+  // };
   render() {
-    const state = store.getState();
-    while (state.track_list.title === "hahaha"){
-      console.log(state);
-      return (
-        <Spinner />
-      );
-    }
-  //   if (state === undefined) {
-  //     return (
-  //       <Spinner />
-  //     );
-  //   } else {
-      const { track_list, heading } = state;
+    if (this.state.length === 1){
+    this.setState(store.getState());
+    } else {
+    // if (state.length == 1) {
+    //   return (
+    //     <Spinner />
+    //   );
+    // } else {
+      const { heading } = this.state;
       return (
         <React.Fragment>
           {/* <Search /> */}
@@ -45,7 +50,7 @@ class Tracks extends Component {
           </div>
         </React.Fragment>
       );
-    // }
+    }
   }
 }
 export default Tracks
