@@ -8,17 +8,6 @@ import { connect } from 'react-redux';
 
 class Tracks extends Component {
   state={};
-
-  // componentDidMount() {
-  //   const statefromstore = store.getState();
-  //   this.setState({statefromstore});
-  // };
-
-  // componentDidUpdate(prevState) {
-  //   if(this.state !== prevState.state){
-  //   this.setState(this.state);
-  //   }
-  // };
   render() {
     if (this.state.length === 1){
     this.setState(store.getState());
@@ -39,14 +28,6 @@ class Tracks extends Component {
           <TrackList
           track={this.state}
             />
-            {/* {
-              track_list.map(items => (
-                <Track 
-                // key={items.track.track_id}
-                track={items.track} />
-              )
-              )
-            } */}
           </div>
         </React.Fragment>
       );

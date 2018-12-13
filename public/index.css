@@ -1,0 +1,45 @@
+body{
+  background: linear-gradient(0deg, rgba(147,236,139,0.9248833322391457) 31%, rgba(154,227,242,0.8380485983455882) 90%);
+  height:100%;
+}
+.card{
+  background: none;
+  border: none;
+}
+html{
+  height:100%;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around center;
+  align-items :stretch;
+  text-align: center;
+}
+.button-left{
+  width: 50vw;
+  height:60vh;
+}
+.button-left:hover{
+  background:white
+}
+.button-right{
+  width: 50vw;
+  height:60vh;
+}
+.button-right:hover{
+  background:white
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50%;
+}
+.label{
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  color: whitesmoke;
+}

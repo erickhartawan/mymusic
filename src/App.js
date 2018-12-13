@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Index from './components/layout/Index';
 import Lyrics from './components/tracks/Lyrics';
+import Tracks from './components/tracks/Tracks';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 // reducers taken for this is used from app-7
 
@@ -18,6 +19,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Index} />
               <Route exact path="/track/lyrics/:id" component={Lyrics} />
+              <Route exact path="/tracks" component={Tracks} />
             </Switch>
             </div> 
         </React.Fragment>

@@ -9,15 +9,15 @@ const Track = (props) => (
     className='col-md-6'
     key={index}
     >
-      <div className="card mb-4 shadow-sm">
-        <div className="card-body">
+      <div className="card mb-4">
+        <div className="card-body text-center">
           <h5>{tracks.artist_name}</h5>
-          <p className="card-text">
+          <p className="card-text text-center">
           <strong><i className="fas fa-play"></i> {tracks.track_name}</strong>
           <br/>
           <strong><i className="fas fa-compact-disc"></i> {tracks.album_name}</strong>
           </p>
-          <Link to={`/track/lyrics/${tracks.track_id}`} className="btn btn-dark btn-block">
+          <Link to={`/track/lyrics/${tracks.track_id}`} className="btn btn-outline-success btn-block">
           <i className="fas fa-chevron-right"></i><span className="text-white"> View Lyrics</span>
           </Link>
         </div>

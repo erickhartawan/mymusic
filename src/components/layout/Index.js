@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Tracks from '../tracks/Tracks.js';
+import Home from "../Home"
 import {store} from '../../index'
 
 class Index extends Component {
@@ -8,7 +9,7 @@ class Index extends Component {
     console.log(state);
     return (
       <React.Fragment>
-          <Tracks />
+          <Home />
       </React.Fragment>
     )
   }
