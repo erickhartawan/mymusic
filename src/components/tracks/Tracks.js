@@ -7,17 +7,10 @@ import { store } from '../../index';
 import { connect } from 'react-redux';
 
 class Tracks extends Component {
-  state={};
+  state = store.getState();
   render() {
-    if (this.state.length === 1){
-    this.setState(store.getState());
-    } else {
-    // if (state.length == 1) {
-    //   return (
-    //     <Spinner />
-    //   );
-    // } else {
       const { heading } = this.state;
+      console.log(this.state)
       return (
         <React.Fragment>
           {/* <Search /> */}
@@ -26,12 +19,10 @@ class Tracks extends Component {
           </h1>
           <div className='row'>
           <TrackList
-          track={this.state}
             />
           </div>
         </React.Fragment>
       );
     }
   }
-}
 export default Tracks

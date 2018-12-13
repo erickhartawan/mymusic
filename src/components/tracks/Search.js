@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Consumer } from '../../context'
+import { Consumer } from '../../context';
+import { store } from '../../index';
 
 class Search extends Component {
     state = {
@@ -27,6 +28,10 @@ class Search extends Component {
         this.setState({ [e.target.name]: e.target.value });
 
     }
+    store.dispatch({
+        type: SEARCH_LYRICS,
+        trackTitle: this.state.trackTitle 
+    })
     render() {
         return (
             <Consumer>
