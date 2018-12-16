@@ -1,9 +1,16 @@
-import {FETCH_DATA} from "./types"
+import {FETCH_DATA, FETCH_RESULT} from "./types"
 import axios from 'axios';
 
 const fetchData = (data) =>{
   return {
     type: FETCH_DATA,
+    data
+  }
+}
+
+const fetchResult = (data) =>{
+  return {
+    type: FETCH_RESULT,
     data
   }
 }
@@ -23,7 +30,7 @@ export const fetchSearchData = (title) =>{
   return (dispatch) =>{
     return axios.get(`https://infinite-lowlands-58555.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${title}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`)
     .then(res =>{
-      dispatch(fetchData(res.data.message.body))
+      dispatch(fetchResult(res.data.message.body))
     })
     .catch(err => {
       throw(err)
