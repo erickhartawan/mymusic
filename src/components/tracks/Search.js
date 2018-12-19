@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { store } from '../../index';
 import { fetchSearchData } from '../../actions';
-import Tracks from "./Tracks"
+import { ResultList } from "./SearchResult";
+import Spinner from "../layout/Spinner";
 
 class Search extends Component {
   state = {
@@ -10,63 +11,111 @@ class Search extends Component {
     track_result:{},
   }
 
-  // findTrack = (dispatch, e) => {
-  //   e.preventDefault();
-  //   axios
-      // .get(`https://infinite-lowlands-58555.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${this.state.trackTitle}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`)
-  //     .then(res => {
-  //       // console.log(res.data)
-  //       dispatch({
-  //         type: "FIND_TRACK",
-  //         payload: res.data.message.body.track_list
-  //       });
-  //       this.setState({ trackTitle: "" })
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
   searchTrack = (e) => {
     e.preventDefault();
     const title = this.state.trackTitle;
-    store.dispatch(fetchSearchData(title));
-    const track_result = store.getState().track_result;
-    this.setState({track_result:track_result});
+    store.dispatch(fetchSearchData(title)).then(()=>{
+      const track_result = store.getState().track_result;
+      console.log(track_result);
+      this.setState({track_result:track_result});
+      console.log(this.state.track_result);
+      // button = <TrackList />
+    });
   }
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
-    return (
-      <>
-      <div className='card mb-4 text-center m-5'>
-        <h1 className="card-header text-lg">
-          Search for lyric <i className="fas fa-music"></i>
-        </h1>
-        <div className="card-body p-4">
-          <form>
-            <input
-              className="form-control form-control-lg "
-              type="text"
-              name="trackTitle"
-              placeholder="Song title here"
-              onChange={this.onChange}
-            />
-            <input
-              type="submit"
-              onClick={this.searchTrack}
-              className="btn btn-primary mt-4 btn-block"
-              value="Search Track"
-            />
-          </form>
+    const trackResult = this.state.track_result;
+    let button;
+    if (trackResult === undefined){
+      button = <Spinner />
+      return(
+        <>
+        
+        <div className='card mb-4 text-center m-5'>
+          <h1 className="card-header text-lg">
+            Search for lyric <i className="fas fa-music"></i>
+          </h1>
+          <div className="card-body p-4">
+            <form>
+              <input
+                className="form-control form-control-lg "
+                type="text"
+                name="trackTitle"
+                placeholder="Song title here"
+                onChange={this.onChange}
+              />
+              <input
+                type="submit"
+                onClick={this.searchTrack}
+                className="btn btn-primary mt-4 btn-block"
+                value="Search Track"
+              />
+            </form>
+          </div>
         </div>
-      </div>
-      {
-        this.state.trackResult !== undefined &&
-        <Tracks trackResult={this.state.trackResult}/>
-      }
-      </>
-    )
+        {button}
+        </>
+      )
+    } else {
+      button = <Spinner />
+      return(
+        <>
+        <div className='card mb-4 text-center m-5'>
+          <h1 className="card-header text-lg">
+            Search for lyric <i className="fas fa-music"></i>
+          </h1>
+          <div className="card-body p-4">
+            <form>
+              <input
+                className="form-control form-control-lg "
+                type="text"
+                name="trackTitle"
+                placeholder="Song title here"
+                onChange={this.onChange}
+              />
+              <input
+                type="submit"
+                onClick={this.searchTrack}
+                className="btn btn-primary mt-4 btn-block"
+                value="Search Track"
+              />
+            </form>
+          </div>
+        </div>
+        <div className="row">{button}</div>
+        
+        </>
+      )
+    }
+
+      // <>
+      // <div className='card mb-4 text-center m-5'>
+      //   <h1 className="card-header text-lg">
+      //     Search for lyric <i className="fas fa-music"></i>
+      //   </h1>
+      //   <div className="card-body p-4">
+      //     <form>
+      //       <input
+      //         className="form-control form-control-lg "
+      //         type="text"
+      //         name="trackTitle"
+      //         placeholder="Song title here"
+      //         onChange={this.onChange}
+      //       />
+      //       <input
+      //         type="submit"
+      //         onClick={this.searchTrack}
+      //         className="btn btn-primary mt-4 btn-block"
+      //         value="Search Track"
+      //       />
+      //     </form>
+      //   </div>
+      // </div>
+      // {button}
+      // </>
   }
 }
 
