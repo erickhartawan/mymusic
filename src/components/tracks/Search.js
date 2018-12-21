@@ -36,11 +36,11 @@ class Search extends Component {
     }
     return (
       <>
-      <div className='card mb-4 text-center m-5'>
-        <h1 className="card-header text-lg">
+      <div className='mb-4 text-center m-5'>
+        <h1 className="text-lg">
           Search for lyric <i className="fas fa-music"></i>
         </h1>
-        <div className="card-body p-4">
+        <div className="p-4">
           <form>
             <input
               className="form-control form-control-lg "
@@ -58,9 +58,9 @@ class Search extends Component {
           </form>
         </div>
       </div>
-      <div className="row m-auto"> 
+      {/* <div className="d-flex flex-column">  */}
       {button}
-      </div>
+      {/* </div> */}
       </>
     )
 

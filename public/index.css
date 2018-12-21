@@ -20,16 +20,16 @@ html{
   width: 50vw;
   height:60vh;
 }
-.button-left:hover{
-  background:white
-}
+/* .button-left:hover{
+  background:white 
+} */
 .button-right{
   width: 50vw;
   height:60vh;
 }
-.button-right:hover{
+/* .button-right:hover{
   background:white
-}
+} */
 
 .center{
   display: block;

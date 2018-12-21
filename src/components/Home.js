@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
+
 class Home extends Component {
   render() {
     
     return (
       <>
-      <h1 className='text-center'>Welcome to MusixMach Lyric Hub</h1>
-      <p>Project created by Erick with Redux and MusixMach API </p>
-      <div className= "flex-container">
-      <Link to={`/search`} className="button-left mx-auto my-auto">
-      <span className="center label">Search For Lyrics</span>
-      </Link>
-      <Link to={`/tracks`} className="button-right mx-auto my-auto">
-      <span className="center label">top 10 tracks</span>
-      </Link>
-      </div>
+        <h1 className='text-center'>Welcome to MusixMach Lyric Hub</h1>
+        <p className='text-center'>Project created by Erick with Redux and MusixMach API </p>
+        <div className="d-flex flex-row align-items-center justify-content-around">
+          <div>
+            <Link to={`/search`}>
+              <Button color="primary">
+                Search Kukukoikoi
+              </Button>
+            </Link>
+            </div>
+            <div>
+            <Link to={`/tracks`}>
+            <Button color="primary">
+                Top 10 Tracks
+              </Button>
+            </Link>
+            </div>
+          </div>
       </>
     )
   }
