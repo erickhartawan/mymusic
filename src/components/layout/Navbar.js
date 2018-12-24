@@ -8,20 +8,36 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-// import './Navbar.css';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import {Link} from 'react-router-dom'
+import './Navbar.css';
+
+function HomeIcon(props) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+    </SvgIcon>
+  );
+}
 
 const Navbar = () => {
   return (
     <AppBar position="static">
+    <div className="d-flex">
+      <div>
         <Toolbar>
-          <IconButton className= "menuButton" color="inherit" aria-label="Open drawer">
-            <MenuIcon />
-          </IconButton>
-          <Typography className="title" variant="h6" color="inherit" noWrap>
+          <Typography className="title-text" variant="h6" color="inherit" noWrap>
             Welcome page
           </Typography>
-          <div className="grow" />
+          
         </Toolbar>
+      </div>
+      <div className="ml-auto ">
+      <Link to="/">
+        <HomeIcon className="homebutton" color="green" />
+      </Link>
+      </div>
+    </div>
       </AppBar>
     // <nav className="navbar navbar-dark bg-dark mb-5">
     // <span className="navbar-brand mb-0 h1 mx-auto"> Search for Lyrics</span>

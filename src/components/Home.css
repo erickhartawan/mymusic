@@ -4,3 +4,8 @@
 .subtitle{
   padding : 20px;
 }
+.bigbutton{
+  padding: 40px !important ;
+  color:black !important;
+  background-color:#3f51b5 !important ;
+}

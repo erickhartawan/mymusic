@@ -4,6 +4,7 @@ import { store } from '../../index';
 import { fetchSearchData } from '../../actions';
 import { ResultList } from "./SearchResult";
 import Spinner from "../layout/Spinner";
+import "./Search.css"
 
 class Search extends Component {
   state = {
@@ -52,8 +53,9 @@ class Search extends Component {
             <input
               type="submit"
               onClick={this.searchTrack}
-              className="btn btn-primary mt-4 btn-block"
+              className="btn indigo mt-4 btn-block"
               value="Search Track"
+              disabled={!(this.state.trackTitle.length > 0)}
             />
           </form>
         </div>

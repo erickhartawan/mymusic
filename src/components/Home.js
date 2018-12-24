@@ -10,18 +10,18 @@ class Home extends Component {
     return (
       <>
         <h1 className='text-center title'>Welcome to MusixMach Lyric Hub</h1>
-        <p className='text-center'>Project created by Erick with Redux and MusixMach API </p>
+        <p className='text-center subtitle'>Project created by Erick with Redux and MusixMach API </p>
         <div className="d-flex flex-row align-items-center justify-content-around">
           <div>
             <Link to={`/search`}>
-              <Button color="primary">
+              <Button className="bigbutton" color="primary">
                 Search Kukukoikoi
               </Button>
             </Link>
             </div>
             <div>
             <Link to={`/tracks`}>
-            <Button color="primary">
+            <Button className="bigbutton"color="primary">
                 Top 10 Tracks
               </Button>
             </Link>
