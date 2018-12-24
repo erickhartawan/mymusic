@@ -14,21 +14,13 @@ const Navbar = () => {
   return (
     <AppBar position="static">
         <Toolbar>
-          <IconButton color="inherit" aria-label="Open drawer">
+          <IconButton className= "menuButton" color="inherit" aria-label="Open drawer">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" color="inherit" noWrap>
-            Material-UI
+          <Typography className="title" variant="h6" color="inherit" noWrap>
+            Welcome page
           </Typography>
-          <div />
-          <div >
-            <div>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-            />
-          </div>
+          <div className="grow" />
         </Toolbar>
       </AppBar>
     // <nav className="navbar navbar-dark bg-dark mb-5">
