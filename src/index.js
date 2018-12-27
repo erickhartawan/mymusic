@@ -5,10 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider, connect } from 'react-redux';
-
 import { fetchAPIData } from './actions/index';
 import { reducer } from './reducers/index';
-
+import firebase from "./config/firebaseconfig"
 
 const initialState =
 {
