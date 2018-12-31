@@ -7,7 +7,7 @@ import { sendToFirestore } from "../../actions"
 const Track = (props) => (
     props.tracksEssence.map((tracks,index) => (
     <div 
-    className='col-md-6'
+    className='child'
     key={index}
     >
       <div className="card mb-4">

@@ -17,7 +17,7 @@ class Tracks extends Component {
           <h1 className='text-center mb-4'>
             {heading}
           </h1>
-          <div className='row'>
+          <div className='d-flex flex-wrap'>
           <TrackList
             />
           </div>

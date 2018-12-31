@@ -60,9 +60,9 @@ class Search extends Component {
           </form>
         </div>
       </div>
-      {/* <div className="d-flex flex-column">  */}
+      <div className="d-flex flex-wrap justify-content-center" >
       {button}
-      {/* </div> */}
+      </div>
       </>
     )
 

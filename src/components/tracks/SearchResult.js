@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { store } from '../../index';
+import "./SearchResult.css"
 
 const Track = (props) => (
     props.tracksEssence.map((tracks,index) => (
     <div 
-    className='col-md-6'
+    className='child'
     key={index}
     >
       <div className="card mb-4">
