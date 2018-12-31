@@ -25,6 +25,11 @@ class Home extends Component {
                 Top 10 Tracks
               </Button>
             </Link>
+            <Link to={`/favourite`}>
+            <Button className="bigbutton"color="primary">
+                Favourite page
+              </Button>
+            </Link>
             </div>
           </div>
       </>

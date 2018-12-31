@@ -1,4 +1,4 @@
-import {FETCH_DATA, FETCH_RESULT} from "./types"
+import {FETCH_DATA, FETCH_RESULT,ADD_FAVOURITE} from "./types"
 import axios from 'axios';
 
 const fetchData = (data) =>{
@@ -11,6 +11,13 @@ const fetchData = (data) =>{
 const fetchResult = (data) =>{
   return {
     type: FETCH_RESULT,
+    data
+  }
+}
+
+const addFavourite = (data) =>{
+  return {
+    type: ADD_FAVOURITE,
     data
   }
 }
@@ -37,5 +44,11 @@ export const fetchSearchData = (title) =>{
     .catch(err => {
       throw(err)
     });
+  }
+}
+
+export const sendToFirestore = (track_name) =>{
+  return (dispatch,{ getFirebase, getFirestore }) => {
+    
   }
 }

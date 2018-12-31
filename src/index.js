@@ -4,10 +4,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { Provider, connect } from 'react-redux';
+import { Provider, connect} from 'react-redux';
+import { compose } from "redux";
 import { fetchAPIData } from './actions/index';
 import { reducer } from './reducers/index';
-import firebase from "./config/firebaseconfig"
+import firebase from "./config/firebaseconfig";
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase,getFirebase } from "react-redux-firebase";
 
 const initialState =
 {
@@ -32,12 +35,25 @@ const initialState =
       }
     }
   ],
+  "favourite":[
+    {
+      "title": "Lucky you",
+    },
+    {
+      "title": "FACK,"
+    }
+    
+  ],
 };
 
 export const store = createStore(
   reducer,
   initialState,
-  applyMiddleware(thunk)
+  compose(
+  applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+  reduxFirestore(firebase),
+  reactReduxFirebase(firebase),
+  )
 );
 
 store.dispatch(fetchAPIData());

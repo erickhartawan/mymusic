@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { store } from '../../index';
+import { sendToFirestore } from "../../actions"
 
 const Track = (props) => (
     props.tracksEssence.map((tracks,index) => (
@@ -16,10 +17,14 @@ const Track = (props) => (
           <strong><i className="fas fa-play"></i> {tracks.track_name}</strong>
           <br/>
           <strong><i className="fas fa-compact-disc"></i> {tracks.album_name}</strong>
+          <div
+          onClick={() => props.onClick(tracks.track_name)}
+          >💚</div>
           </p>
           <Link to={`/track/lyrics/${tracks.track_id}`} className="btn btn-outline-success btn-block">
           <i className="fas fa-chevron-right"></i><span className="text-white"> View Lyrics</span>
           </Link>
+          
         </div>
       </div>
     </div>
@@ -29,6 +34,7 @@ const Track = (props) => (
 
 
 const mapStateToTrackProps = (state) => {
+
   const tracksEssence = state.track_list.map(track => ( 
     {
       artist_name: track.track.artist_name,
@@ -43,15 +49,12 @@ const mapStateToTrackProps = (state) => {
   };
 };
 
-// const mapDispatchToTabsProps = (dispatch) => (
-//   {
-//     onClick: (id) => (
-//       dispatch({
-//         type: 'OPEN_THREAD',
-//         id: id,
-//       })
-//     ),
-//   }
-// );
+const mapDispatchTrackProps = (dispatch) => (
+  {
+    onClick: (track_name) => (
+      store.dispatch(sendToFirestore(track_name))
+    ),
+  }
+);
 
-export const TrackList = connect(mapStateToTrackProps)(Track);
+export const TrackList = connect(mapStateToTrackProps,mapDispatchTrackProps)(Track);
