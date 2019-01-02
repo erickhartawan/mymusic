@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { store } from '../../index';
-import { fetchSearchData } from '../../actions';
+import { fetchSearchData } from '../../store/actions';
 import { ResultList } from "./SearchResult";
 import Spinner from "../layout/Spinner";
 import "./Search.css"

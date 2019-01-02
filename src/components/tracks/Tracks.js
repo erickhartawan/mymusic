@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-// import { Consumer } from '../../context';
-import Spinner from '../layout/Spinner';
 import {TrackList} from '../tracks/Track';
-import Search from './Search';
 import { store } from '../../index';
-import { connect } from 'react-redux';
 
 class Tracks extends Component {
   state = store.getState();

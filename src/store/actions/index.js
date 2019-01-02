@@ -47,8 +47,17 @@ export const fetchSearchData = (title) =>{
   }
 }
 
-export const sendToFirestore = (track_name) =>{
-  return (dispatch,{ getFirebase, getFirestore }) => {
-    
+export const sendToFirestore = (track_name) => {
+  return (dispatch,{ getFirestore }) => {
+    const firestoredb = getFirestore();
+    firestoredb.collection('favourites').add({
+      track_name,
+      "Singer": "Slim Shady",
+      "Added on": new Date()
+    }).then(() => {
+      dispatch(addFavourite(track_name));
+      console.log(this.state)
+      }
+    ).catch(err => console.log(err))
   }
 }

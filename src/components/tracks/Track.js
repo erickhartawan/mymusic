@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { store } from '../../index';
-import { sendToFirestore } from "../../actions"
+import { sendToFirestore } from "../../store/actions"
+import "./Track.css"
 
 const Track = (props) => (
     props.tracksEssence.map((tracks,index) => (
