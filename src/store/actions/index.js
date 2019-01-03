@@ -64,15 +64,14 @@ export const fetchSearchData = (title) =>{
 // }
 
 export const sendToFirestore = (track_name) => {
-  return (dispatch) => {
-    const firestore = firebase.firestore();
+  return (dispatch, getState ,{getFirestore}) => {
+    const firestore = getFirestore();
     firestore.collection('favourites').add({
       track_name,
       "Singer": "Slim Shady",
       "Added on": new Date()
     }).then(() => {
       dispatch(addFavourite(track_name));
-      console.log(this.state)
     }
     ).catch(err => console.log(err))
   }

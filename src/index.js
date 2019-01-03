@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware,compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider, connect} from 'react-redux';
-import { compose } from "redux";
 import { fetchAPIData } from './store/actions/index';
 import { reducer } from './store/reducers/index';
 import firebase from "./config/firebaseconfig";
@@ -45,6 +44,9 @@ const initialState =
     
   ],
 };
+// const enhancers = [
+//   reduxFirestore(firebase)
+// ]
 
 export const store = createStore(
   reducer,
