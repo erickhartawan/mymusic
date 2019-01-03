@@ -18,8 +18,9 @@ export default function favReducer(state=initialState, action) {
     const newFavourite = state.favourite.concat(newTrackName)
 
     return {
-      ...state,
-      favourite: newFavourite,
+      favourite: newFavourite
+      // ...state,
+      // favourite: newFavourite,
     }
   }
   else {

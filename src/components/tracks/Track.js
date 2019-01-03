@@ -36,7 +36,7 @@ const Track = (props) => (
 
 const mapStateToTrackProps = (state) => {
 
-  const tracksEssence = state.track_list.map(track => ( 
+  const tracksEssence = state.track_list.track_list.map(track => ( 
     {
       artist_name: track.track.artist_name,
       track_name: track.track.track_name,

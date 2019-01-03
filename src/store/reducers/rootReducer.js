@@ -1,12 +1,12 @@
-import dataReducer from "./dataReducer"
-import resultReducer from "./resultReducer"
+import trackListReducer from "./trackListReducer"
+import trackResultReducer from "./trackResultReducer"
 import favReducer from "./favReducer"
 import { combineReducers } from "redux"
 import { firestoreReducer } from "redux-firestore"
 
 export const rootReducer = combineReducers({
-  data: dataReducer,
-  result: resultReducer,
+  track_list: trackListReducer,
+  track_result: trackResultReducer,
   favourite: favReducer,
   firebase: firestoreReducer,
 });
