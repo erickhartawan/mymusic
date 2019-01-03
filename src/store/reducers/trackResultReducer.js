@@ -11,12 +11,12 @@ const initialState =
         "track_name": "",
       }
     }
-  ]
+  ],
 }
 
-export default function resultReducer(state=initialState, action) {
+export default function trackResultReducer(state=initialState, action) {
   if (action.type === FETCH_RESULT) {
-    return {
+    return{
       ...state,
       track_result: action.data.track_list,
     };
