@@ -14,7 +14,7 @@ export function reducer(state,action){
   }
   else if (action.type === ADD_FAVOURITE){
     const newTrackName = {
-      track_name: action.data.track_name
+      title: action.data
     };
     const newFavourite = state.favourite.concat(newTrackName)
 

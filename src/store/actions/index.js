@@ -1,5 +1,6 @@
 import {FETCH_DATA, FETCH_RESULT,ADD_FAVOURITE} from "./types"
 import axios from 'axios';
+import firebase from "../../config/firebaseconfig"
 
 const fetchData = (data) =>{
   return {
@@ -47,17 +48,32 @@ export const fetchSearchData = (title) =>{
   }
 }
 
+// export const sendToFirestore = (track_name) => {
+//   return (dispatch,{ getFirestore }) => {
+//     const firestoredb = getFirestore();
+//     firestoredb.collection('favourites').add({
+//       track_name,
+//       "Singer": "Slim Shady",
+//       "Added on": new Date()
+//     }).then(() => {
+//       dispatch(addFavourite(track_name));
+//       console.log(this.state)
+//       }
+//     ).catch(err => console.log(err))
+//   }
+// }
+
 export const sendToFirestore = (track_name) => {
-  return (dispatch,{ getFirestore }) => {
-    const firestoredb = getFirestore();
-    firestoredb.collection('favourites').add({
+  return (dispatch) => {
+    const firestore = firebase.firestore();
+    firestore.collection('favourites').add({
       track_name,
       "Singer": "Slim Shady",
       "Added on": new Date()
     }).then(() => {
       dispatch(addFavourite(track_name));
       console.log(this.state)
-      }
+    }
     ).catch(err => console.log(err))
   }
 }

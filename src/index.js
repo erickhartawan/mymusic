@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { Provider, connect} from 'react-redux';
 import { compose } from "redux";
 import { fetchAPIData } from './store/actions/index';
-import { reducer } from './store/reducers/index';
+import { rootReducer } from './store/reducers/rootReducer';
 import firebase from "./config/firebaseconfig";
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase,getFirebase } from "react-redux-firebase";
@@ -47,7 +47,7 @@ const initialState =
 };
 
 export const store = createStore(
-  reducer,
+  rootReducer,
   initialState,
   compose(
   applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
