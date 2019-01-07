@@ -8,5 +8,5 @@ export const rootReducer = combineReducers({
   track_list: trackListReducer,
   track_result: trackResultReducer,
   favourite: favReducer,
-  firebase: firestoreReducer,
+  firestore: firestoreReducer,
 });

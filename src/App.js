@@ -4,7 +4,7 @@ import Index from './components/layout/Index';
 import Lyrics from './components/tracks/Lyrics';
 import Tracks from './components/tracks/Tracks';
 import Search from './components/tracks/Search';
-import Favourite from './components/tracks/favourite/Favorite';
+import FavouriteList from './components/tracks/favourite/Favorite';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 // reducers taken for this is used from app-7
 
@@ -23,7 +23,7 @@ class App extends Component {
               <Route exact path="/track/lyrics/:id" component={Lyrics} />
               <Route exact path="/tracks" component={Tracks} />
               <Route exact path="/search" component={Search} />
-              <Route exact path="/favourite" component={Favourite} />
+              <Route exact path="/favourite" component={FavouriteList} />
             </Switch>
             </div> 
         </React.Fragment>

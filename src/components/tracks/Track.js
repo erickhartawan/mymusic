@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { store } from '../../index';
 import { sendToFirestore } from "../../store/actions"
+import { firestoreConnect } from "react-redux-firebase"
 import "./Track.css"
 
 const Track = (props) => (
@@ -58,4 +60,7 @@ const mapDispatchTrackProps = (dispatch) => (
   }
 );
 
-export const TrackList = connect(mapStateToTrackProps,mapDispatchTrackProps)(Track);
+export const TrackList = compose(
+  connect(mapStateToTrackProps,mapDispatchTrackProps),
+  // firestoreConnect({collection:"favourite"})
+)(Track);
