@@ -1,23 +1,26 @@
 import React, { Component } from 'react'
-import { Divider } from '@material-ui/core';
+
 
 const FavouriteList = ({favourite}) =>{
   return (
-    <div className="project-list section">
+    <>
     {
       favourite && favourite.map((item,index) =>{
       return(
         <div 
-        className="list-item"
+        className="card"
         key={index}
         >
+        <div className="card-title"> Favourite Lyrics </div>
+        <div className="card-text">
         {item.track_name}
+          </div>
         </div>
       )
     }
     )
   }
-    </div>
+</>
   )
 } 
 export default FavouriteList

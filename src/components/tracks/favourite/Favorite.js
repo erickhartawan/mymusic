@@ -32,7 +32,7 @@ const Favourite = (props) =>{
   const { favourite } = props;
   // if (props.firestore.ordered === 1) {
   return(
-    <div className="container">
+    <div className="d-flex">
       <FavouriteList favourite={favourite} />
     </div>
 )
@@ -45,7 +45,7 @@ const Favourite = (props) =>{
 const mapStateToFavouriteProps = (state) =>{
   console.log(state)
   return {
-    favourite: state.firestore.ordered.favourites
+    favourite: state.firestore.ordered.favourite
   }
 }
 
@@ -53,7 +53,7 @@ export default compose(
   connect(mapStateToFavouriteProps),
   firestoreConnect([
   {
-    collection:"favourites"
+    collection:"favourite"
   }
 ])
 )(Favourite);
