@@ -7,6 +7,7 @@ class Tracks extends Component {
   render() {
       const { heading } = this.state;
       console.log(this.state)
+      let type = "top_list";
       return (
         <React.Fragment>
           {/* <Search /> */}
@@ -15,6 +16,7 @@ class Tracks extends Component {
           </h1>
           <div className='d-flex flex-wrap'>
           <TrackList
+          type={type}
             />
           </div>
         </React.Fragment>

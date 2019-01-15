@@ -66,7 +66,7 @@ export const fetchSearchData = (title) =>{
 export const sendToFirestore = (track_name) => {
   return (dispatch, getState ,{getFirestore}) => {
     const firestore = getFirestore();
-    firestore.collection('favourites').add({
+    firestore.collection('favourite').add({
       track_name,
       "Singer": "Slim Shady",
       "Added on": new Date()

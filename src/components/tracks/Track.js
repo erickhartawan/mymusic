@@ -36,20 +36,36 @@ const Track = (props) => (
 )
 
 
-const mapStateToTrackProps = (state) => {
-
-  const tracksEssence = state.track_list.track_list.map(track => ( 
+const mapStateToTrackProps = (state,ownProps) => {
+  let type = ownProps.type;
+  if( type == "top_list") {
+    const tracksEssence = state.track_list.track_list.map(track => ( 
     {
       artist_name: track.track.artist_name,
       track_name: track.track.track_name,
       album_name: track.track.album_name,
       track_id: track.track.track_id,
     }
-  ));
+    ));
 
-  return {
-    tracksEssence,
-  };
+    return {
+      tracksEssence,
+    }
+  } else if (type == "result_list"){
+    const tracksEssence = state.track_result.track_result.map(track => ( 
+      {
+        artist_name: track.track.artist_name,
+        track_name: track.track.track_name,
+        album_name: track.track.album_name,
+        track_id: track.track.track_id,
+      }
+    ));
+  
+    return {
+      tracksEssence,
+      
+    };
+  }
 };
 
 const mapDispatchTrackProps = (dispatch) => (

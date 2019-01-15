@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { store } from '../../index';
 import { fetchSearchData } from '../../store/actions';
-import { ResultList } from "./SearchResult";
 import Spinner from "../layout/Spinner";
 import "./Search.css"
+import {TrackList} from '../tracks/Track';
 
 class Search extends Component {
   state = {
     trackTitle: {},
     track_result:{},
+    test: {
+      title: "My Lyfe"
+    }
+
   }
   searchTrack = (e) => {
     e.preventDefault();
@@ -27,13 +31,13 @@ class Search extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
-    
+    const type = "result_list";
     const trackResult = store.getState().track_result;
     let button
     if (trackResult.length <= 1 ){
     button = <Spinner />
     } else{
-    button = <ResultList />
+    button = <TrackList type={type}/>
     }
     return (
       <>

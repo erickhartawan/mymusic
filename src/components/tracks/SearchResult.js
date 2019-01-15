@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import "./SearchResult.css"
 
-const Track = (props) => (
-    props.tracksEssence.map((tracks,index) => (
+const Track = (props) => {
+  
+    let array = props.tracksEssence.map((tracks,index) => (
     <div 
     className='child'
     key={index}
@@ -25,10 +26,15 @@ const Track = (props) => (
     </div>
     )
     )
-)
+    console.log(props.test.title);
+    return (
+      array
+    )
+ }
 
 
 const mapStateToTrackProps = (state) => {
+  // let { test } = ownProps;
   let tracksEssence = state.track_result.track_result.map(track => ( 
     {
       artist_name: track.track.artist_name,
@@ -40,6 +46,7 @@ const mapStateToTrackProps = (state) => {
 
   return {
     tracksEssence,
+    
   };
 };
 
