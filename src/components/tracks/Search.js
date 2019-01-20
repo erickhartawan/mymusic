@@ -4,7 +4,7 @@ import { store } from '../../index';
 import { fetchSearchData } from '../../store/actions';
 import Spinner from "../layout/Spinner";
 import "./Search.css"
-import {TrackList} from '../tracks/Track';
+import Result from './Result'
 
 class Search extends Component {
   state = {
@@ -22,7 +22,7 @@ class Search extends Component {
       const track_result = store.getState().track_result;
       console.log(track_result);
       this.setState({track_result:track_result});
-      console.log(this.state.track_result);
+      console.log(this.state);
       // button = <TrackList />
     });
   }
@@ -31,14 +31,14 @@ class Search extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
-    const type = "result_list";
-    const trackResult = store.getState().track_result;
-    let button
-    if (trackResult.length <= 1 ){
-    button = <Spinner />
-    } else{
-    button = <TrackList type={type}/>
-    }
+    
+    // const trackResult = store.getState().track_result;
+    // let button
+    // if (trackResult.length <= 1 ){
+    // button = <Spinner />
+    // } else{
+    // button = <TrackList type={type}/>
+    // }
     return (
       <>
       <div className='mb-4 text-center m-5'>
@@ -65,7 +65,7 @@ class Search extends Component {
         </div>
       </div>
       <div className="d-flex flex-wrap justify-content-center" >
-      {button}
+      <Result track_result={this.state.track_result} />
       </div>
       </>
     )
