@@ -7,6 +7,8 @@ import { sendToFirestore } from "../../store/actions"
 import { firestoreConnect } from "react-redux-firebase"
 import "./Track.css"
 
+//do not change.
+
 const Track = (props) => (
     props.tracksEssence.map((tracks,index) => (
     <div 
@@ -38,7 +40,7 @@ const Track = (props) => (
 
 const mapStateToTrackProps = (state,ownProps) => {
   let type = ownProps.type;
-  if( type == "top_list") {
+  if( type === "top_list") {
     const tracksEssence = state.track_list.track_list.map(track => ( 
     {
       artist_name: track.track.artist_name,
@@ -51,7 +53,7 @@ const mapStateToTrackProps = (state,ownProps) => {
     return {
       tracksEssence,
     }
-  } else if (type == "result_list"){
+  } else if (type === "result_list"){
     const tracksEssence = state.track_result.track_result.map(track => ( 
       {
         artist_name: track.track.artist_name,
