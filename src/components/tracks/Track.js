@@ -23,7 +23,7 @@ const Track = (props) => (
           <br/>
           <strong><i className="fas fa-compact-disc"></i> {tracks.album_name}</strong>
           <div
-          onClick={() => props.onClick(tracks.track_name)}
+          onClick={() => props.onClick(tracks)}
           >💚</div>
           </p>
           <Link to={`/track/lyrics/${tracks.track_id}`} className="btn btn-outline-success btn-block">
@@ -72,8 +72,8 @@ const mapStateToTrackProps = (state,ownProps) => {
 
 const mapDispatchTrackProps = (dispatch) => (
   {
-    onClick: (track_name) => (
-      store.dispatch(sendToFirestore(track_name))
+    onClick: (tracks) => (
+      store.dispatch(sendToFirestore(tracks))
     ),
   }
 );

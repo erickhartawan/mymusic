@@ -1,6 +1,6 @@
 import {FETCH_DATA, FETCH_RESULT,ADD_FAVOURITE} from "./types"
 import axios from 'axios';
-import firebase from "../../config/firebaseconfig"
+
 
 const fetchData = (data) =>{
   return {
@@ -63,15 +63,16 @@ export const fetchSearchData = (title) =>{
 //   }
 // }
 
-export const sendToFirestore = (track_name) => {
+export const sendToFirestore = (tracks) => {
   return (dispatch, getState ,{getFirestore}) => {
     const firestore = getFirestore();
     firestore.collection('favourite').add({
-      track_name,
-      "Singer": "Slim Shady",
-      "Added on": new Date()
+      "Title": tracks.track_name,
+      "Singer": tracks.artist_name,
+      "Album" : tracks.album_name,
+      "Added on": new Date(),
     }).then(() => {
-      dispatch(addFavourite(track_name));
+      dispatch(addFavourite(tracks.track_name));
     }
     ).catch(err => console.log(err))
   }
