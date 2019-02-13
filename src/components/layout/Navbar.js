@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import SvgIcon from '@material-ui/core/SvgIcon';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Navbar.css';
 
 function HomeIcon(props) {
@@ -23,22 +23,27 @@ function HomeIcon(props) {
 const Navbar = () => {
   return (
     <AppBar position="static">
-    <div className="d-flex">
-      <div>
-        <Toolbar>
+      <div className="d-flex">
+        <div>
+          <Toolbar>
+            <Typography className="title-text" variant="h6" color="inherit" noWrap>
+              Welcome page
+            </Typography>
+          </Toolbar>
+        </div>
+        <div className="d-flex align-items-center flex-grow-1 justify-content-end">
+          <Link to="/">
+            <HomeIcon className="homebutton" color="green" />
+          </Link>
           <Typography className="title-text" variant="h6" color="inherit" noWrap>
-            Welcome page
+            Login
           </Typography>
-          
-        </Toolbar>
+          <Typography className="title-text" variant="h6" color="inherit" noWrap>
+            Sign
+          </Typography>
+        </div>
       </div>
-      <div className="ml-auto ">
-      <Link to="/">
-        <HomeIcon className="homebutton" color="green" />
-      </Link>
-      </div>
-    </div>
-      </AppBar>
+    </AppBar>
     // <nav className="navbar navbar-dark bg-dark mb-5">
     // <span className="navbar-brand mb-0 h1 mx-auto"> Search for Lyrics</span>
     // </nav>
