@@ -6,6 +6,8 @@ import Tracks from './components/tracks/Tracks';
 import Search from './components/tracks/Search';
 import FavouriteList from './components/tracks/favourite/Favorite';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import SignIn from './components/auth/SignIn'
+import SignUp from './components/auth/SignUp'
 // reducers taken for this is used from app-7
 
 
@@ -24,6 +26,8 @@ class App extends Component {
               <Route exact path="/tracks" component={Tracks} />
               <Route exact path="/search" component={Search} />
               <Route exact path="/favourite" component={FavouriteList} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
             </Switch>
             </div> 
         </React.Fragment>
